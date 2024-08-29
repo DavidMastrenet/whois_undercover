@@ -22,10 +22,10 @@ def handle_client(client_socket, address, player_id, votes, lock):
                 with lock:
                     votes[voted_player] += 1
             elif message == "EXIT":
-                print(f"客户端 {address} 断开连接")
+                print(f"玩家 {player_id} 与服务器断开连接")
                 break
     except Exception as e:
-        print(f"Error communicating with {address}: {e}")
+        print(f"与 {address} 的连接断开: {e}")
     finally:
         client_socket.close()
 
